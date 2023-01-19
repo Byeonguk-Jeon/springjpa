@@ -1,0 +1,5 @@
+package com.in28minutes.database.databasedemo.entity;
+
+public class Person {
+
+}
