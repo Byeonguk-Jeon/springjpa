@@ -1,5 +1,7 @@
 package com.example.springdata.product;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +28,13 @@ class Productdata1ApplicationTests {
 		product.setPrice(1000d);
 		
 		repository.save(product);
+		
+	}
+	
+	@Test
+	public void testRead() {
+		Product product = repository.findById(1).get();
+        System.out.println(product.toString());
 		
 	}
 
