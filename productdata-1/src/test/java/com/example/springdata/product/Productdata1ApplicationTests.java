@@ -1,6 +1,7 @@
 package com.example.springdata.product;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,60 @@ class Productdata1ApplicationTests {
 
 		System.out.println(repository.count());
 
+	}
+
+	@Test
+	public void testFindByName() {
+		List<Product> product = repository.findByName("Iphone");
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByNameAndDesc() {
+		List<Product> product = repository.findByNameAndDes("Iphone", "Awesome");
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByPriceGreaterThan() {
+		List<Product> product = repository.findByPriceGreaterThan(1000);
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByDescContains() {
+		List<Product> product = repository.findByDesContains("k");
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByPriceBetween() {
+		List<Product> product = repository.findByPriceBetween(750.000, 850.000);
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByDescLike() {
+		List<Product> product = repository.findByDesLike("%e%");
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
+	}
+
+	@Test
+	public void testFindByIdIn() {
+
+		List<Integer> ids = new ArrayList<Integer>();
+		ids.add(1);
+		ids.add(2);
+		ids.add(3);
+
+		List<Product> product = repository.findByIdIn(ids);
+
+		product.forEach(p -> System.out.println("name:" + p.getName()));
 	}
 }

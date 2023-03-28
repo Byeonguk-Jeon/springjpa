@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=idgenerators/C:\/Users\/dusgm\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/3.0.3\/spring-data-commons-3.0.3.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/3.0.3=/=/maven.scope=/compile=/&lt;org.springframework.data.repository(CrudRepository.class[CrudRepository" modifiers="1537" timestamp="1679294909962"/>
+    <typeInfo handle="=idgenerators/C:\/Users\/dusgm\/.m2\/repository\/org\/hibernate\/orm\/hibernate-core\/6.1.7.Final\/hibernate-core-6.1.7.Final.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.hibernate.orm=/=/maven.artifactId=/hibernate-core=/=/maven.version=/6.1.7.Final=/=/maven.scope=/compile=/&lt;org.hibernate.id(IdentifierGenerator.class[IdentifierGenerator" modifiers="1537" timestamp="1679294910040"/>
+    <typeInfo handle="=idgenerators/C:\/Users\/dusgm\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/3.0.3\/spring-data-commons-3.0.3.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/3.0.3=/=/maven.scope=/compile=/&lt;org.springframework.data.mapping(IdentifierAccessor.class[IdentifierAccessor" modifiers="1537" timestamp="1679294909962"/>
+</typeInfoHistroy>
