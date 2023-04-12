@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.querydsl.QPageRequest;
 
 import com.example.springdata.product.entities.Product;
@@ -95,13 +97,20 @@ class Productdata1ApplicationTests {
 	 * 
 	 * product.forEach(p -> System.out.println("name:" + p.getName())); }
 	 */
-	
+
 	@Test
 	public void testFindAllPaging() {
-		
+
 		Pageable pageable = PageRequest.of(0, 2);
-		
+
 		Page<Product> result = repository.findAll(pageable);
-		result.forEach(p-> System.out.println(p.getName()));
+		result.forEach(p -> System.out.println(p.getName()));
+	}
+
+	@Test
+	public void testFindAllSorting() {
+
+		repository.findAll(PageRequest.of(0, 4, Sort.by(Direction.DESC, "price"))).forEach(p->System.out.println(p.getName()));
+
 	}
 }
