@@ -2,6 +2,7 @@ package com.example.springdata.product.repos;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.example.springdata.product.entities.Product;
@@ -20,5 +21,5 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 
 	List<Product> findByDesLike(String desc);
 	
-	List<Product> findByIdIn(List<Integer> ids);
+	List<Product> findByIdIn(List<Integer> ids, org.springframework.data.domain.Pageable pageable);
 }

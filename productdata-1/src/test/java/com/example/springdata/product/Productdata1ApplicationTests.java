@@ -87,16 +87,20 @@ class Productdata1ApplicationTests {
 	 * repository.findByDesLike("%e%");
 	 * 
 	 * product.forEach(p -> System.out.println("name:" + p.getName())); }
-	 * 
-	 * @Test public void testFindByIdIn() {
-	 * 
-	 * List<Integer> ids = new ArrayList<Integer>(); ids.add(1); ids.add(2);
-	 * ids.add(3);
-	 * 
-	 * List<Product> product = repository.findByIdIn(ids);
-	 * 
-	 * product.forEach(p -> System.out.println("name:" + p.getName())); }
-	 */
+	 */ 
+	 
+	 @Test 
+	 public void testFindByIdIn() {
+	  
+	  List<Integer> ids = new ArrayList<Integer>(); ids.add(1); ids.add(2);
+	  ids.add(3);
+	  
+	  Pageable pageable = PageRequest.of(0, 2);
+	  
+	  List<Product> product = repository.findByIdIn(ids,pageable);
+	  
+	  product.forEach(p -> System.out.println("name:" + p.getName())); }
+	 
 
 	@Test
 	public void testFindAllPaging() {
@@ -110,7 +114,15 @@ class Productdata1ApplicationTests {
 	@Test
 	public void testFindAllSorting() {
 
-		repository.findAll(PageRequest.of(0, 4, Sort.by(Direction.DESC, "price"))).forEach(p->System.out.println(p.getName()));
+		repository.findAll(PageRequest.of(0, 4, Sort.by(Direction.DESC, "name")))
+				.forEach(p -> System.out.println(p.getName()));
 
+	}
+	
+	@Test
+	public void testFindAllPagingAndSorting() {
+		
+		Pageable pageable = PageRequest.of(0, 2, Direction.DESC, "name");
+		repository.findAll(pageable).forEach(p->System.out.println(p.getName()));
 	}
 }
