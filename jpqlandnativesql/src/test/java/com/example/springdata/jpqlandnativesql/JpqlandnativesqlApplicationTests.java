@@ -5,6 +5,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.springdata.jpqlandnativesql.entities.Student;
 import com.example.springdata.jpqlandnativesql.repos.StudentRepository;
@@ -55,5 +57,11 @@ class JpqlandnativesqlApplicationTests {
 		System.out.println(repository.findStudentsForGivenScores(80,90));
 	}
 
+	@Test
+	@Transactional
+	@Rollback(false)
+	public void testDeleteStudentByFirstName() {
+		repository.deleteStudentByFirstName("Bill");
+	}
 	
 }

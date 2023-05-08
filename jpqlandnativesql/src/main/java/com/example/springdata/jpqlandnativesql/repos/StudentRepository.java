@@ -2,6 +2,7 @@ package com.example.springdata.jpqlandnativesql.repos;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -24,4 +25,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 	@Query("from Student where score>:min and score<:max")
 	List<Student> findStudentsForGivenScores(@Param("min")int min, @Param("max")int max);
 	
+	@Modifying
+	@Query("delete from Student where firstName =:firstName")
+	void deleteStudentByFirstName(@Param("firstName") String firstName);
 }
