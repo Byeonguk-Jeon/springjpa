@@ -5,6 +5,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +25,8 @@ class JpqlandnativesqlApplicationTests {
 		Student st = new Student();
 		// st.setId(1L);
 		st.setFirstName("John");
-		st.setLastName("Ferguson");
-		st.setScore(88);
+		st.setLastName("Adam");
+		st.setScore(62);
 
 		repository.save(st);
 
@@ -32,7 +34,7 @@ class JpqlandnativesqlApplicationTests {
 
 	@Test
 	public void testFindAllStudents() {
-		System.out.println(repository.findAllStudent());
+		System.out.println(repository.findAllStudent(PageRequest.of(1, 2)));
 	}
 
 	@Test

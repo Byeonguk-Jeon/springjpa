@@ -2,6 +2,7 @@ package com.example.springdata.jpqlandnativesql.repos;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,7 +13,7 @@ import com.example.springdata.jpqlandnativesql.entities.Student;
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
 	@Query("from Student")
-	List<Student> findAllStudent();
+	List<Student> findAllStudent(Pageable pageable);
 	
 	// 별칭(st) 사용 가능 사용 안해도 됨
 	@Query("select st.firstName, st.lastName from Student st")
