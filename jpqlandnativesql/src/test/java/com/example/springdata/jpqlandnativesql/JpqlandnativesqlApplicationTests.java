@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +35,7 @@ class JpqlandnativesqlApplicationTests {
 
 	@Test
 	public void testFindAllStudents() {
-		System.out.println(repository.findAllStudent(PageRequest.of(1, 2)));
+		System.out.println(repository.findAllStudent(PageRequest.of(0, 5, Direction.DESC, "id")));
 	}
 
 	@Test
@@ -48,7 +49,7 @@ class JpqlandnativesqlApplicationTests {
 		}
 
 	}
-	
+
 	@Test
 	public void findAllStudentByFirstName() {
 		System.out.println(repository.findAllStudentByFirstName("Bill"));
@@ -56,7 +57,7 @@ class JpqlandnativesqlApplicationTests {
 
 	@Test
 	public void findStudentsForGivenScores() {
-		System.out.println(repository.findStudentsForGivenScores(80,90));
+		System.out.println(repository.findStudentsForGivenScores(80, 90));
 	}
 
 	@Test
@@ -65,5 +66,12 @@ class JpqlandnativesqlApplicationTests {
 	public void testDeleteStudentByFirstName() {
 		repository.deleteStudentByFirstName("Bill");
 	}
+
+	
+	@Test
+	public void testFindAllStudent() {
+		System.out.println(repository.findAllStudentNQ());
+	}
+	
 	
 }
