@@ -3,7 +3,6 @@ package com.example.springdata.hibernateinheritance;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Repository;
 
 import com.example.springdata.hibernateinheritance.entities.Check;
 import com.example.springdata.hibernateinheritance.entities.CreditCard;
