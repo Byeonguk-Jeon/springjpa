@@ -33,4 +33,6 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 	@Query(value = "select * from student", nativeQuery = true)
 	List<Student> findAllStudentNQ();
 
+	@Query(value = "select * from student where fname=:firstName", nativeQuery = true)
+	List<Student> findByfirstNQ(@Param("firstName") String firstName);
 }

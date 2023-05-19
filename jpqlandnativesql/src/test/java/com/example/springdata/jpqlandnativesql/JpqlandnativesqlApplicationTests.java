@@ -73,5 +73,10 @@ class JpqlandnativesqlApplicationTests {
 		System.out.println(repository.findAllStudentNQ());
 	}
 	
+	@Test
+	public void testFindByFirstNameNQ() {
+		System.out.println(repository.findByfirstNQ("John"));
+	}
+	
 	
 }
