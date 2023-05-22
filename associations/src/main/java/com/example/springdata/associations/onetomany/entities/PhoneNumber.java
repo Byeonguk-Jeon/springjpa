@@ -4,15 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class PhoneNumber {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String number;
 	private String type;
+	
+	@ManyToOne
+	@JoinColumn(name="customer_id")
+	private Customer customer;
 	
 	public long getId() {
 		return id;
@@ -31,6 +37,12 @@ public class PhoneNumber {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	

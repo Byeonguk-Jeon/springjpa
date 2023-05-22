@@ -2,6 +2,7 @@ package com.example.springdata.associations.onetomany.entities;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,10 +13,10 @@ import jakarta.persistence.OneToMany;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String name;
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer",cascade = CascadeType.ALL)
 	private Set<PhoneNumber> numbers;
 	
 	public long getId() {
