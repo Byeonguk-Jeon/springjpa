@@ -1,13 +1,21 @@
 package com.example.springdata.componentmapping.entities;
 
-import org.springframework.data.annotation.Id;
+
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 
 @Entity
 public class Employee {
 
+	@Id
+	private int id;
+	private String name;
+	@Embedded
+	private Address address;
+	
 	public int getId() {
 		return id;
 	}
@@ -31,11 +39,5 @@ public class Employee {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
-	@Id
-	private int id;
-	private String name;
-	@Embedded
-	private Address address;
 
 }
